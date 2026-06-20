@@ -12,3 +12,4 @@ Thumbs.db
 # Large data files
 data/raw/*.gz
 data/raw/*.txt
+data/processed/
