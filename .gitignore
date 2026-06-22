@@ -13,3 +13,4 @@ Thumbs.db
 data/raw/*.gz
 data/raw/*.txt
 data/processed/
+.snakemake/
