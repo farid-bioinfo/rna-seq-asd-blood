@@ -194,6 +194,18 @@ source("scripts/R/04_go_enrichment.R")
 All outputs are written to results/tables/ and results/figures/.
 
 ---
+## Reproducibility — Docker
+
+The full pipeline is containerised and available on Docker Hub.
+
+```bash
+docker pull faridbioinfo2026/rna-seq-asd-pipeline:latest
+docker run --rm -v $(pwd)/results:/pipeline/results faridbioinfo2026/rna-seq-asd-pipeline:latest
+```
+
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-faridbioinfo2026-blue?logo=docker)](https://hub.docker.com/r/faridbioinfo2026/rna-seq-asd-pipeline)
+
+---
 
 ## Stack
 
@@ -205,6 +217,8 @@ All outputs are written to results/tables/ and results/figures/.
 | ggplot2 · ggrepel | Volcano and PCA visualisation |
 | clusterProfiler | GO and pathway enrichment |
 | org.Hs.eg.db | Human gene annotation (symbol to Entrez mapping) |
+| Snakemake | Workflow manager (pipeline orchestration) |
+| Docker | Containerisation and reproducible execution |
 
 ---
 
