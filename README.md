@@ -204,7 +204,8 @@ docker run --rm -v $(pwd)/results:/pipeline/results faridbioinfo2026/rna-seq-asd
 ```
 
 [![Docker Hub](https://img.shields.io/badge/Docker%20Hub-faridbioinfo2026-blue?logo=docker)](https://hub.docker.com/r/faridbioinfo2026/rna-seq-asd-pipeline)
-
+Pipeline outputs (figures and results tables) are archived on AWS S3:
+`s3://rna-seq-asd-blood-farid/results/` (eu-west-2)
 ---
 
 ## Stack
@@ -219,6 +220,7 @@ docker run --rm -v $(pwd)/results:/pipeline/results faridbioinfo2026/rna-seq-asd
 | org.Hs.eg.db | Human gene annotation (symbol to Entrez mapping) |
 | Snakemake | Workflow manager (pipeline orchestration) |
 | Docker | Containerisation and reproducible execution |
+| AWS S3 | Cloud storage for pipeline outputs (eu-west-2) |
 
 ---
 
