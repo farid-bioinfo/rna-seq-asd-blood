@@ -149,6 +149,7 @@ rna-seq-asd-blood/
 
 │       └── 04_go_enrichment.R
 
+│       └── 05_load_results_sqlite.py
 ├── results/
 
 │   ├── tables/
@@ -206,6 +207,17 @@ docker run --rm -v $(pwd)/results:/pipeline/results faridbioinfo2026/rna-seq-asd
 [![Docker Hub](https://img.shields.io/badge/Docker%20Hub-faridbioinfo2026-blue?logo=docker)](https://hub.docker.com/r/faridbioinfo2026/rna-seq-asd-pipeline)
 Pipeline outputs (figures and results tables) are archived on AWS S3:
 `s3://rna-seq-asd-blood-farid/results/` (eu-west-2)
+
+## Structured results — SQLite
+
+DESeq2 results are loaded into a local SQLite database for structured querying:
+
+```bash
+python3 scripts/05_load_results_sqlite.py
+```
+
+This creates `results/deseq2_results.db` containing all 13,439 tested genes,
+queryable by any standard SQL client or via Python pandas.
 ---
 
 ## Stack
@@ -221,6 +233,7 @@ Pipeline outputs (figures and results tables) are archived on AWS S3:
 | Snakemake | Workflow manager (pipeline orchestration) |
 | Docker | Containerisation and reproducible execution |
 | AWS S3 | Cloud storage for pipeline outputs (eu-west-2) |
+| SQLite · pandas | Structured results storage and querying |
 
 ---
 
