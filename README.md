@@ -149,7 +149,7 @@ rna-seq-asd-blood/
 
 │       └── 04_go_enrichment.R
 
-│       └── 05_load_results_sqlite.py
+│   └── 05_load_results_sqlite.py
 ├── results/
 
 │   ├── tables/
