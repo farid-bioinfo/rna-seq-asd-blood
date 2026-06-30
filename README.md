@@ -127,57 +127,35 @@ require replication in an independent cohort.
 ---
 
 ## Repository structure
+
+```
 rna-seq-asd-blood/
-
 ├── data/
-
 │   ├── raw/
-
 │   │   └── GSE212645_CountsMatrix.txt.gz
-
 │   └── processed/
-
 │       ├── dds_initial.rds
-
 │       ├── dds_final.rds
-
 │       └── metadata.csv
-
 ├── scripts/
-
 │   ├── R/
-
 │   │   ├── 01_load_data.R
-
 │   │   ├── 02_deseq2_analysis.R
-
 │   │   ├── 03_visualisation.R
-
 │   │   └── 04_go_enrichment.R
-
 │   └── 05_load_results_sqlite.py
-
 ├── results/
-
 │   ├── tables/
-
 │   │   └── DESeq2_results_family_corrected.csv
-
 │   └── figures/
-
 │       ├── volcano_plot.png
-
 │       ├── volcano_plot_labelled.png
-
 │       └── 04_go_dotplot.png
-
 ├── Snakefile
-
 ├── Dockerfile
-
 ├── CLAUDE.md
-
 └── README.md
+```
 
 ---
 
