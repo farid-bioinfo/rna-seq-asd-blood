@@ -15,7 +15,7 @@ setwd("C:/Users/localuser/rna-seq-asd-blood")
 
 source("scripts/R/01_load_data.R")   # loads counts + builds dds object
 source("scripts/R/02_deseq2_analysis.R")  # filters, runs DESeq2, saves results
-# visualisation script: scripts-R-03_visualisation.R (in project root)
+source("scripts/R/03_visualisation.R")    # volcano plots
 ```
 
 To run an individual script in RStudio or Rscript:
@@ -58,7 +58,7 @@ data/raw/GSE212645_CountsMatrix.txt.gz
   - Saves: results/tables/DESeq2_results_family_corrected.csv
         │
         ▼
-scripts-R-03_visualisation.R  (project root)
+scripts/R/03_visualisation.R
   - Reads DESeq2_results_family_corrected.csv
   - Volcano plots coloured by nominal significance (p<0.05, no FDR threshold met)
   - Saves: results/figures/volcano_plot.png, volcano_plot_labelled.png
@@ -68,6 +68,5 @@ scripts-R-03_visualisation.R  (project root)
 
 - **No FDR-significant genes** were found; results use nominal p<0.05 as the significance threshold in visualisations
 - The contrast direction is `SIB vs ASD` (positive log2FC = higher in siblings)
-- `scripts/R/03_visualisation.R` is empty — the working visualisation script is `scripts-R-03_visualisation.R` in the project root
 - `01_load_data.R` also contains unrelated metafor meta-analysis code at the top (exploratory work, not part of the RNA-seq pipeline)
 - GEO metadata fetch requires internet access; `gse` object is not cached locally
