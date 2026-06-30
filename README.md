@@ -72,8 +72,6 @@ v
 
 Volcano plots (nominal p < 0.05 threshold)
 
-PCA coloured by condition and family
-
 |
 
 v
@@ -103,8 +101,8 @@ ratio, and n = 20 pairs is modest. The result is biologically interpretable,
 not a pipeline failure.
 
 **Why use p < 0.05 without FDR correction for GO enrichment?**
-With no FDR-significant genes, applying a strict dual threshold (padj < 0.05,
-|LFC| > 1) reduces the gene set to a small but high-confidence list. GO
+With no FDR-significant genes, applying a strict dual threshold (p < 0.05,
+|LFC| > 0.5) reduces the gene set to a small but high-confidence list. GO
 enrichment on this set is exploratory and should be interpreted cautiously —
 it identifies directional hypotheses for future larger studies, not confirmed
 pathways.
@@ -133,23 +131,32 @@ rna-seq-asd-blood/
 
 ├── data/
 
-│   └── raw/
+│   ├── raw/
 
-│       └── GSE212645_CountsMatrix.txt.gz
+│   │   └── GSE212645_CountsMatrix.txt.gz
+
+│   └── processed/
+
+│       ├── dds_initial.rds
+
+│       ├── dds_final.rds
+
+│       └── metadata.csv
 
 ├── scripts/
 
-│   └── R/
+│   ├── R/
 
-│       ├── 01_load_data.R
+│   │   ├── 01_load_data.R
 
-│       ├── 02_deseq2_analysis.R
+│   │   ├── 02_deseq2_analysis.R
 
-│       ├── 03_visualisation.R
+│   │   ├── 03_visualisation.R
 
-│       └── 04_go_enrichment.R
+│   │   └── 04_go_enrichment.R
 
 │   └── 05_load_results_sqlite.py
+
 ├── results/
 
 │   ├── tables/
@@ -164,13 +171,14 @@ rna-seq-asd-blood/
 
 │       └── 04_go_dotplot.png
 
-├── docs/
+├── Snakefile
 
-├── notebooks/
+├── Dockerfile
 
 ├── CLAUDE.md
 
 └── README.md
+
 ---
 
 ## How to reproduce
@@ -218,6 +226,7 @@ python3 scripts/05_load_results_sqlite.py
 
 This creates `results/deseq2_results.db` containing all 13,439 tested genes,
 queryable by any standard SQL client or via Python pandas.
+
 ---
 
 ## Stack
